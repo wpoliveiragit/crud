@@ -1,7 +1,10 @@
-# Compiled class file
+# Java
 *.class
+*.jar
+*.war
+*.ear
 
-# Log file
+# Log files
 *.log
 
 # BlueJ files
@@ -10,7 +13,13 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
+# Package Files
+*.rbc
+*.class
+*.dll
+*.exe
+*.so
+*.dylib
 *.jar
 *.war
 *.nar
@@ -19,6 +28,153 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# Eclipse
+.project
+.classpath
+.cxxche
+.settings/
+bin/
+tmp/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+/.idea/libraries/
+/.idea/modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries/
+/.idea/shelf/
+/.idea/caches/
+/.idea/modules/
+/.idea/inspectionProfiles
+.idea/.name
+.idea/replstate.xml
+
+# VS Code
+.vscode/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Generated files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.pid
+*.seed
+*.old
+
+# Byte-compiled / package files
+*.pyc
+*.pyo
+*.pyd
+*.par
+
+# JetBrains IDEs
+.idea/
+*.iml
+.idea/modules.xml
+.idea/*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetwizard.xml
+.idea/libraries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/sqlDataSources.xml
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/markdown-navigator.xml
+.idea/gradle.xml
+.idea/gradle_data.xml
+.idea/markdown-navigator.xml
+.idea/replstate.xml
+.idea/workspace.xml
+.idea/runConfigurations/
+
+# Cache
+.idea/caches/
+.idea/inspectionProfiles
+.idea/shelf/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/modules.xml
+.idea/artifacts/
+/out/
+
+# IntelliJ IDEA Plugin
+.idea/.name
+.idea/.tasks
+.idea/.svnFilesExcludes
+.idea/.groovyCompiler.xml
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs Log
+.idea/vcs.xml
+.idea/svn.xml
+
+# Visual Studio IntelliSense
+.ipch/
+
+# Miscellaneous
+*.log
+*.history
+*.lock
+*.log
+*.tmp
+*.bak
+*.swp
+*.seed
+*.old
+
+# End of ignore file
