@@ -1,0 +1,13 @@
+
+#DATABASE
+app.sqlite.url: 'jdbc:sqlite:src/main/resources/database/sqliteDB.db'
+app.sqlite.scripts: scripts/SQLite.sql
+
+# BANNER
+project.property.java.version: @java.version@
+project.property.compilation.build: @compilation.build@
+project.groupId: @project.groupId@
+project.artifactId: @project.artifactId@
+project.version: @project.version@
+project.name: @project.name@
+project.description: @project.description@
