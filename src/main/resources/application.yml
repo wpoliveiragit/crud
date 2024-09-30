@@ -11,3 +11,6 @@ project.artifactId: @project.artifactId@
 project.version: @project.version@
 project.name: @project.name@
 project.description: @project.description@
+
+
+logging.level.org.springframework.security: DEBUG
