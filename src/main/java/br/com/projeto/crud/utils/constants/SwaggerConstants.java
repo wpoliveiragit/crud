@@ -4,28 +4,28 @@ public interface SwaggerConstants {
 
 	interface ItensDoc {
 		interface Get {
-			String sum = "Lista todos os itens.";
-			String des = "Retorna uma lista contendo todos os itens.";
+			String SUM = "Lista todos os itens.";
+			String DES = "Retorna uma lista contendo todos os itens.";
 		}
 
 		interface GetId {
-			String sum = "Obtem item/ID.";
-			String des = "Retorna um item pelo ID.";
+			String SUM = "Obtem item/ID.";
+			String DES = "Retorna um item pelo ID.";
 		}
 
 		interface Post {
-			String sum = "Add novo item.";
-			String des = "Adiciona um novo item na lista.";
+			String SUM = "Add novo item.";
+			String DES = "Adiciona um novo item na lista.";
 		}
 
 		interface Put {
-			String sum = "Atualiza item.";
-			String des = "Atualiza um item existente pelo ID.";
+			String SUM = "Atualiza item.";
+			String DES = "Atualiza um item existente pelo ID.";
 		}
 
 		interface Delete {
-			String sum = "Remove item.";
-			String des = "Remove um item da lista pelo ID.";
+			String SUM = "Remove item.";
+			String DES = "Remove um item da lista pelo ID.";
 		}
 	}
 	

@@ -22,8 +22,10 @@ import br.com.projeto.crud.service.ItemsService;
 import br.com.projeto.crud.utils.Utils;
 import br.com.projeto.crud.utils.constants.SwaggerConstants.ItensDoc;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+@Tag(name = "Rotas de cadastros de itens")
 @RestController
 @RequestMapping("/items")
 public class ItensController implements ItensDoc {
@@ -37,7 +39,7 @@ public class ItensController implements ItensDoc {
 	}
 
 	@GetMapping
-	@Operation(summary = Get.sum, description = Get.des)
+	@Operation(summary = Get.SUM, description = Get.DES)
 	public ResponseEntity<ResponseDTO> findAll() throws Exception {
 		List<ItensModel> ret = itemService.findAll();
 		return (ret.isEmpty()) //
@@ -46,7 +48,7 @@ public class ItensController implements ItensDoc {
 	}
 
 	@GetMapping("/{id}")
-	@Operation(summary = GetId.sum, description = GetId.des)
+	@Operation(summary = GetId.SUM, description = GetId.DES)
 	public ResponseEntity<ResponseDTO> findById(@PathVariable Integer id) throws Exception {
 		Optional<ItensModel> opt = itemService.findById(id);
 		return opt//
@@ -55,14 +57,14 @@ public class ItensController implements ItensDoc {
 	}
 
 	@PostMapping
-	@Operation(summary = Post.sum, description = Post.des)
+	@Operation(summary = Post.SUM, description = Post.DES)
 	public ResponseEntity<ResponseDTO> create(@Valid @RequestBody ItensRequestDTO body) throws Exception {
 		ItensModel model = itemService.create(body.clone());
 		return ResponseEntity.status(HttpStatus.CREATED).body(ResponseGeneratorDTO.responseCreate(model));
 	}
 
 	@PutMapping("/{id}")
-	@Operation(summary = Put.sum, description = Put.des)
+	@Operation(summary = Put.SUM, description = Put.DES)
 	public ResponseEntity<ResponseDTO> update(@PathVariable Integer id, @RequestBody ItensRequestDTO body)
 			throws Exception {
 		Optional<ItensModel> opt = itemService.update(id, body.clone());
@@ -71,7 +73,7 @@ public class ItensController implements ItensDoc {
 	}
 
 	@DeleteMapping("/{id}")
-	@Operation(summary = Delete.sum, description = Delete.des)
+	@Operation(summary = Delete.SUM, description = Delete.DES)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) throws Exception {
 		itemService.delete(id);
 		return ResponseEntity.noContent().build();

@@ -1,5 +1,9 @@
 package br.com.projeto.crud.config;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,4 +28,12 @@ public class SwaggerConfig {
 						new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
 				.addSecurityItem(new io.swagger.v3.oas.models.security.SecurityRequirement().addList("basicAuth"));
 	}
+	
+	
+	
+	private static final Map<String, Object> stringToMap(String mapString) {
+		return Arrays.stream(mapString.split(" ")).map(s -> s.split("="))
+				.collect(Collectors.toMap(s -> s[0], s -> s[1]));
+	}
+	
 }

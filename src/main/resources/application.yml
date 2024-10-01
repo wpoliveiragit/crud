@@ -14,3 +14,47 @@ project.description: @project.description@
 
 
 logging.level.org.springframework.security: DEBUG
+
+
+# OTHER (NÂO USADO)
+# Conexão com o banco de dados
+#app.datasource.postgresql.drive-class-name: org.postgresql.Driver
+#app.datasource.postgresql.url: jdbc:postgresql://localhost:5432/postgres
+#app.datasource.postgresql.user: postgres
+#app.datasource.postgresql.pass: postgres
+#
+#app.datasource.sqlite.drive-class-name: org.sqlite.JDBC
+#app.datasource.sqlite.url: jdbc:sqlite:SQLiteDB.db
+##app.datasource.sqlite.url: jdbc:sqlite:memory:myDb?cache=shared
+#app.datasource.sqlite.user: sa
+#app.datasource.sqlite.pass: sa
+#
+#spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+#spring.jpa.hibernate.ddl-auto: update
+#hibernate.hbm2ddl.auto: update
+#hibernate.show_sql: true
+#
+#
+#
+#
+## SWAGGER CONFIGURATION
+#springdoc.swagger-ui.path: /swagger-ui-custom.html
+#springdoc.swagger-ui.operationsSorter: method
+#springdoc.api-docs.path: /api-docs
+#
+#pegasus.swagger.api-info.title: Teste de projeto Spring boot
+#pegasus.swagger.api-info.description: Controle de cadastro
+#pegasus.swagger.api-info.version: 1.0
+#pegasus.swagger.api-info.summary: SUMMARY
+#pegasus.swagger.api-info.terms-of-Service-url: 'https://wpoliveira.atlassian.net/wiki/spaces/swagger/pages/170393608/Terms+of+Service'
+#pegasus.swagger.api-info.extensions: 'I-ex1=I-value01 I-ex2=I-value02 I-ex3=I-value03'
+#
+#pegasus.swagger.api-info.contact.name: Pegasus Organization
+#pegasus.swagger.api-info.contact.url: 'https://wpoliveira.atlassian.net/wiki/spaces/swagger/pages/170328081/Pegasus+Organization'
+#pegasus.swagger.api-info.contact.e-mail: wp_oliveira@yahoo.com.br
+#pegasus.swagger.api-info.contact.extensions: 'C-ex1=C-value01 C-ex2=C-value02 C-ex3=C-value03'
+#
+#pegasus.swagger.api-info.license.identifier: 'License:'
+#pegasus.swagger.api-info.license.extensions: 'L-ex1=L-value01 L-ex2=L-value02 L-ex3=L-value03'
+#pegasus.swagger.api-info.license.name: 'GPL Software livre.'
+#pegasus.swagger.api-info.license.url: 'https://wpoliveira.atlassian.net/wiki/spaces/swagger/pages/170360866/Document+License'
