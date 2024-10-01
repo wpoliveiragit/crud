@@ -7,15 +7,15 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.projeto.crud.dao.ItensDao;
+import br.com.projeto.crud.dao.impl.ItensDaoImpl;
 import br.com.projeto.crud.model.ItensModel;
-import br.com.projeto.crud.model.DTO.ItemsRequestDTO;
+import br.com.projeto.crud.model.DTO.ItensRequestDTO;
 import br.com.projeto.crud.utils.Utils;
 
 public @Service class ItemsService {
 	private static final Logger LOG = Utils.createLoggerSize30(ItemsService.class);
 
-	private @Autowired ItensDao sqlite;
+	private @Autowired ItensDaoImpl sqlite;
 
 	public ItemsService() {
 		LOG.info("-- LOAD BEAN -- >> {}", ItemsService.class.getSimpleName());
@@ -29,11 +29,11 @@ public @Service class ItemsService {
 		return printLog(sqlite.findById(id), "findById", id);
 	}
 
-	public ItensModel create(ItemsRequestDTO item) throws Exception {
+	public ItensModel create(ItensRequestDTO item) throws Exception {
 		return printLog("create", sqlite.create(new ItensModel().name(item.getName())).get());
 	}
 
-	public Optional<ItensModel> update(int id, ItemsRequestDTO dto) throws Exception {
+	public Optional<ItensModel> update(int id, ItensRequestDTO dto) throws Exception {
 		return printLog(sqlite.update(new ItensModel().id(id).name(dto.getName())), "update", id);
 	}
 

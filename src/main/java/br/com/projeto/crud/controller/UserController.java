@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/crud")
-public class CrudController {
+public class UserController  {
 
 	private final Map<String, String> itemsMap = new HashMap<>(1);
 

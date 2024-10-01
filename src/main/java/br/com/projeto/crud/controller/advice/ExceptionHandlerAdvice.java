@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import br.com.projeto.crud.model.DTO.ResponseDTO;
-import br.com.projeto.crud.model.DTO.ResponseGenerator;
+import br.com.projeto.crud.model.DTO.ResponseGeneratorDTO;
 import br.com.projeto.crud.utils.Utils;
 
 @ControllerAdvice
@@ -28,7 +28,7 @@ public class ExceptionHandlerAdvice {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseEntity<ResponseDTO> handleGenericException(Exception ex) {
 
-		ResponseDTO body = ResponseGenerator.responseFail(ex.getLocalizedMessage(), MSG_INTERNAL_SERVER_ERROR);
+		ResponseDTO body = ResponseGeneratorDTO.responseFail(ex.getLocalizedMessage(), MSG_INTERNAL_SERVER_ERROR);
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
 	}
 
@@ -36,7 +36,7 @@ public class ExceptionHandlerAdvice {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ResponseEntity<ResponseDTO> handleNullPointerException(NullPointerException ex) {
 
-		ResponseDTO body = ResponseGenerator.responseFail(ex.getLocalizedMessage(), MSG_BAD_REQUEST);
+		ResponseDTO body = ResponseGeneratorDTO.responseFail(ex.getLocalizedMessage(), MSG_BAD_REQUEST);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
 	}
 
@@ -44,7 +44,7 @@ public class ExceptionHandlerAdvice {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ResponseDTO> handleValidationExceptions(MethodArgumentNotValidException ex) {
 
-		ResponseDTO body = ResponseGenerator.responseFail(
+		ResponseDTO body = ResponseGeneratorDTO.responseFail(
 				ex.getBindingResult().getFieldErrors().stream().map(FieldError::getDefaultMessage).toList(),
 				"Problema em {" + ex.getBindingResult().getObjectName() + "}");
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);

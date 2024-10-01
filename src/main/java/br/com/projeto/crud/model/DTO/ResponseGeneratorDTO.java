@@ -1,6 +1,6 @@
 package br.com.projeto.crud.model.DTO;
 
-public class ResponseGenerator {
+public class ResponseGeneratorDTO {
 
 	private static final String RESPONSE_GET = "Linha encontrado com sucesso!";
 	private static final String RESPONSE_GET_LIST = "Linhas encontrados com sucesso!";
