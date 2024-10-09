@@ -1,4 +1,4 @@
-package br.com.projeto.crud.config;
+package other.test;
 
 import javax.sql.DataSource;
 

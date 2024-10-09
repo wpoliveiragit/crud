@@ -1,12 +1,9 @@
 package br.com.projeto.crud.config;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import br.com.projeto.crud.utils.LoggerUtils;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -23,17 +20,15 @@ public class SwaggerConfig {
 
 	@Bean
 	public OpenAPI customOpenAPI() {
-		return new OpenAPI()
+		LoggerUtils log = LoggerUtils.createLoggerSize30(OpenAPI.class);
+
+		log.infoLoadingBean();
+		OpenAPI openApi = new OpenAPI()
 				.components(new Components().addSecuritySchemes("basicAuth",
 						new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
 				.addSecurityItem(new io.swagger.v3.oas.models.security.SecurityRequirement().addList("basicAuth"));
+		log.infoCreateBean();
+		return openApi;
 	}
-	
-	
-	
-	private static final Map<String, Object> stringToMap(String mapString) {
-		return Arrays.stream(mapString.split(" ")).map(s -> s.split("="))
-				.collect(Collectors.toMap(s -> s[0], s -> s[1]));
-	}
-	
+
 }

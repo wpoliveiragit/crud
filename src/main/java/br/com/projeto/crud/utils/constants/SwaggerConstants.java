@@ -28,5 +28,32 @@ public interface SwaggerConstants {
 			String DES = "Remove um item da lista pelo ID.";
 		}
 	}
-	
+
+	interface UserDoc {
+		interface Get {
+			String SUM = "Lista todos os users.";
+			String DES = "Retorna a lista de users.";
+		}
+
+		interface GetId {
+			String SUM = "Retorna user/login.";
+			String DES = "Retorna um user pelo login.";
+		}
+
+		interface Post {
+			String SUM = "Add novo user.";
+			String DES = "Adiciona um novo user na tabela.";
+		}
+
+		interface Put {
+			String SUM = "Atualiza user.";
+			String DES = "Atualiza um user existente pelo login.";
+		}
+
+		interface Delete {
+			String SUM = "Remove user.";
+			String DES = "Remove um user da tabela pelo ID.";
+		}
+	}
+
 }

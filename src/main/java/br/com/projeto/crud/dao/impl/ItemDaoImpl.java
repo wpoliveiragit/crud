@@ -10,15 +10,13 @@ import org.springframework.stereotype.Component;
 
 import br.com.projeto.crud.component.SQLiteConnectComponent;
 import br.com.projeto.crud.component.SqlCommandsComponent;
-import br.com.projeto.crud.dao.ItensDao;
+import br.com.projeto.crud.dao.ItemDao;
 import br.com.projeto.crud.model.ItensModel;
-import br.com.projeto.crud.utils.Utils;
+import br.com.projeto.crud.utils.LoggerUtils;
 import br.com.projeto.crud.utils.constants.DaoConstants;
-import br.com.projeto.crud.utils.constants.DaoConstants.TBItensReplaces;
 
-@Component
-public class ItensDaoImpl implements ItensDao, //
-		DaoConstants.TBItensReplaces {
+public @Component class ItemDaoImpl implements ItemDao, DaoConstants.TBItemReplaces {
+	private static final LoggerUtils LOG = LoggerUtils.createLoggerSize30(ItemDaoImpl.class);
 
 	private SQLiteConnectComponent sqLiteConnect;
 
@@ -28,18 +26,17 @@ public class ItensDaoImpl implements ItensDao, //
 	private String UPDATE = "#UPDATE";
 	private String DELETE_BY_ID = "#DELETE_BY_ID";
 
-	public ItensDaoImpl(SQLiteConnectComponent sqlConnect, SqlCommandsComponent sqlCommands) throws Exception {
-		Utils.createLoggerSize30(ItensDaoImpl.class).info("-- LOAD BEAN -- >> {}", ItensDaoImpl.class.getSimpleName());
+	public ItemDaoImpl(SQLiteConnectComponent sqlConnect, SqlCommandsComponent sqlCommands) throws Exception {
+		LOG.infoLoadingBean();
 		this.sqLiteConnect = sqlConnect;
-
-		sqLiteConnect.createTable(true, TBItensReplaces.TABLE, TBItensReplaces.TABLE_COLUMNS);
-		{ // GET AND ADJUST SQL COMMANDS
-			SELECT_ALL = sqlCommands.getAdjustedSqlCommand(SELECT_ALL, TBItensReplaces.TABLE);
-			SELECT_BY_ID = sqlCommands.getAdjustedSqlCommand(SELECT_BY_ID, TBItensReplaces.TABLE, TBItensReplaces.WHERE);
-			INSERT = sqlCommands.getAdjustedSqlCommand(INSERT, TBItensReplaces.TABLE, TBItensReplaces.COLUMNS, TBItensReplaces.VALUES);
-			UPDATE = sqlCommands.getAdjustedSqlCommand(UPDATE, TBItensReplaces.TABLE, TBItensReplaces.SET, TBItensReplaces.WHERE);
-			DELETE_BY_ID = sqlCommands.getAdjustedSqlCommand(DELETE_BY_ID, TBItensReplaces.TABLE, TBItensReplaces.WHERE);
-		}
+		sqLiteConnect.createTableLog(TABLE, TABLE_COLUMNS);
+		// OBTEM E AJUSTA O COMANDO
+		SELECT_ALL = sqlCommands.getAdjustedSqlCommandLog(SELECT_ALL, TABLE);
+		SELECT_BY_ID = sqlCommands.getAdjustedSqlCommandLog(SELECT_BY_ID, TABLE, WHERE);
+		INSERT = sqlCommands.getAdjustedSqlCommandLog(INSERT, TABLE, COLUMNS, VALUES);
+		UPDATE = sqlCommands.getAdjustedSqlCommandLog(UPDATE, TABLE, SET, WHERE);
+		DELETE_BY_ID = sqlCommands.getAdjustedSqlCommandLog(DELETE_BY_ID, TABLE, WHERE);
+		LOG.infoCreateBean();
 	}
 
 	public List<ItensModel> findAll() throws Exception {

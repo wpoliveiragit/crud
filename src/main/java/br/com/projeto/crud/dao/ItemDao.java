@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import br.com.projeto.crud.model.ItensModel;
 
-public interface ItensDao {
+public interface ItemDao {
 
 	List<ItensModel> findAll() throws Exception;
 

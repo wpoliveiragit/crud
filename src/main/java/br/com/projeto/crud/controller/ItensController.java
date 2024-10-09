@@ -3,6 +3,7 @@ package br.com.projeto.crud.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,8 +19,8 @@ import br.com.projeto.crud.model.ItensModel;
 import br.com.projeto.crud.model.DTO.ItensRequestDTO;
 import br.com.projeto.crud.model.DTO.ResponseDTO;
 import br.com.projeto.crud.model.DTO.ResponseGeneratorDTO;
-import br.com.projeto.crud.service.ItemsService;
-import br.com.projeto.crud.utils.Utils;
+import br.com.projeto.crud.service.ItemService;
+import br.com.projeto.crud.utils.LoggerUtils;
 import br.com.projeto.crud.utils.constants.SwaggerConstants.ItensDoc;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -27,15 +28,13 @@ import jakarta.validation.Valid;
 
 @Tag(name = "Rotas de cadastros de itens")
 @RestController
-@RequestMapping("/items")
+@RequestMapping("${app.controller.item.path}")
 public class ItensController implements ItensDoc {
+	private static final LoggerUtils LOG = LoggerUtils.createLoggerSize30(ItensController.class);
+	private @Autowired ItemService itemService;
 
-	private ItemsService itemService;
-
-	public ItensController(ItemsService itemService) {
-		Utils.createLoggerSize30(ItensController.class).info("-- LOAD BEAN -- >> {}",
-				ItensController.class.getSimpleName());
-		this.itemService = itemService;
+	public ItensController() {
+		LOG.infoCreateBean();
 	}
 
 	@GetMapping
